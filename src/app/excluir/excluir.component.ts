@@ -8,6 +8,6 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ExcluirComponent {
 
-  senhaFormControl = new FormControl('', [Validators.required, Validators.email]);
+  senhaFormControl = new FormControl('', [Validators.required]);
 
 }

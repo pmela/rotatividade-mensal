@@ -2,12 +2,13 @@
     <h1 mat-dialog-title>Excluir</h1>
     <mat-dialog-content>Para escluir o aequivo x e necessario digitar a senha do mesmo!</mat-dialog-content>
     <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
-        <form class="example-form">
-            <mat-form-field appearance="outline" fxFlex="100">
-                <mat-label>Senha</mat-label>
-                <input type="password" matInput placeholder="123456">
-            </mat-form-field>
-        </form>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Senha</mat-label>
+            <input type="password" [formControl]="senhaFormControl" matInput placeholder="123456">
+            <mat-error *ngIf="!senhaFormControl.valid">
+                Digite sua senha
+            </mat-error>
+        </mat-form-field>
     </div>
 
     <div mat-dialog-actions fxLayoutAlign="end center">
