@@ -23,6 +23,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AnexoComponent } from './anexo/anexo.component';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -53,6 +54,7 @@ import {MatTableModule} from '@angular/material/table';
     MatToolbarModule,
     MatMenuModule,
     MatTableModule,
+    NgChartsModule,
 
   ],
   providers: [],
