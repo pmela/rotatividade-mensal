@@ -1,1 +1,131 @@
-<p>teste</p>
+<div fxLayout="column" style="margin-top: 2em;" class="container">
+    <div fxLayout="row" fxFlex="100" fxLayoutGap="2em">
+        <mat-card fxFlex="25" class="borda-verde" fxLayout="row" fxLayoutGap="0.5em"fxLayoutAlign="start center">
+            <mat-icon fontIcon="group" style="padding-left: 0.5em;"></mat-icon>
+            <div fxLayout="column">
+                <span>Total de clientes</span>
+                <span>948</span>
+            </div>
+
+        </mat-card>
+        <mat-card fxFlex="25" class="borda-verde" fxLayout="row"fxLayoutGap="0.5em"fxLayoutAlign="start center">
+            <mat-icon fontIcon="attach_money" style="padding-left: 0.5em;"></mat-icon>
+            <div fxLayout="column">
+                <span>Receita de clientes ativos</span>
+                <span>R$ 1.256,00</span>
+            </div>
+
+        </mat-card>
+        <mat-card fxFlex="25" class="borda-vermelho" fxLayout="row" fxLayoutGap="0.5em"fxLayoutAlign="start center">
+            <mat-icon fontIcon="close" style="padding-left: 0.5em;"></mat-icon>
+            <div fxLayout="column">
+                <span>Total de cancelamentos</span>
+                <span>12</span>
+            </div>
+
+        </mat-card>
+        <mat-card fxFlex="25" class="borda-vermelho" fxLayout="row" fxLayoutGap="0.5em"fxLayoutAlign="start center">
+            <mat-icon fontIcon="attach_money" style="padding-left: 0.5em;"></mat-icon>
+            <div fxLayout="column">
+                <span>Valor provido de cancelamentos</span>
+                <span>R$ 456,00</span>
+            </div>
+
+        </mat-card>
+    </div>
+    <br>
+    <div fxLayout="row" fxLayoutAlign="end center">
+        <mat-form-field appearance="fill">
+          <mat-label>Filtre pela data</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+    <div fxLayout="row" fxFlax="100">
+        <div fxLayoutGap="2em">
+            <mat-card fxFlex="60" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="column" class="container">
+                    Grafico
+                </div>
+            </mat-card>
+            <mat-card fxFlex="40" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="column" class="container">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora dolorum ab nihil beatae dicta
+                        mollitia, perferendis sed fugit, deserunt velit voluptates quis minima dignissimos cum quisquam
+                        iste itaque tenetur doloribus.</p>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <br>
+    <div fxLayout="row" fxFlax="100">
+        <div fxLayoutGap="2em">
+            <mat-card fxFlex="60" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="column" class="container">
+                    Grafico
+                </div>
+            </mat-card>
+            <mat-card fxFlex="40" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="column" class="container">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora dolorum ab nihil beatae dicta
+                        mollitia, perferendis sed fugit, deserunt velit voluptates quis minima dignissimos cum quisquam
+                        iste itaque tenetur doloribus.</p>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <br>
+    <div fxLayout="row" fxFlax="100">
+        <div fxLayoutGap="2em">
+            <mat-card fxFlex="60" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="column" class="container">
+                    Grafico
+                </div>
+            </mat-card>
+            <mat-card fxFlex="40" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="column" class="container">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora dolorum ab nihil beatae dicta
+                        mollitia, perferendis sed fugit, deserunt velit voluptates quis minima dignissimos cum quisquam
+                        iste itaque tenetur doloribus.</p>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <br>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <br>
+      <p fxLayoutAlign="center center" >Desenvolvido por: Pâmela Araújo</p>
+</div>

@@ -1,65 +1,20 @@
-<p>
-  <mat-toolbar color="primary">
-    <img src="assets/imagens/logorotatividade.png" width="25%">
-  </mat-toolbar>
-</p>
-<div class="container fundo">
-  <div fxLayout="column" fxLayoutAlign="space-between center" style="margin-top: 3em;">
-    <p style="font-size: 2.3em; font-weight: 400; margin-bottom: 1em; line-height:0.9em;">Ola! Seja bem vindo(a) a
-      aplicação Rotatividade mensal </p>
-    <p style="font-size: 20px; font-weight: 300;">Ao Anexar sua planilha no botão Anexar abaixo você tera uma analise de
-      Monthly Recurring Revenue (MRR) e Churn Rate entre outras.
-    </p>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="end center">
-    <mat-form-field appearance="fill">
-      <mat-label>Filtre pela data de anexo</mat-label>
-      <input matInput [matDatepicker]="picker">
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+<mat-toolbar color="primary" >
+  <div fxLayoutAlign="space-between center" fxFlex="100">
+
+    <div fxLayoutAlign="start center">
+      <img src="assets/imagens/logorotatividade.png" width="25%" fxFlex="60">
+    </div>
+    <div fxLayoutAlign="end center">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon class="material-icons-outlined" fontIcon="info"></mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+    </div>
   </div>
 
-  <div fxLayout="row" fxLayoutAlign="space-between center">
-    <mat-card fxFlex="100" >
-      <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center"  style="margin-top: 1.5em;">
-        <div fxLayout="column" fxFlex="80">
-          <mat-card-content style="font-size: 18px; font-weight: 400; text-align: justify;">Anexe sua planilha
-          </mat-card-content>
-        </div>
-        <mat-card-content fxLayout="column" fxFlex="20" >
-          <button mat-stroked-button color="primary">Analizar planilha</button>
-        </mat-card-content>
-      </div>
-      <mat-card-header>
+</mat-toolbar>
 
-
-        <mat-card-subtitle>Ao anexar sua planilha, o sistema lhe pedira uma senha para acessá-la futuramente,
-          lembre-se
-          de anotá-la.</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content style="margin-top: 1em;">
-        <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxLayoutGap="0.5em">
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="50">
-            <p>planilhaormamental.csv</p>
-          </div>
-          <div fxLayout="row" fxLayoutAlign="end center" fxFlex="50" fxLayoutGap="1em">
-            <button mat-stroked-button color="primary">Excluir</button>
-            <button mat-stroked-button color="primary">Analizar planilha</button>
-          </div>
-        </div>
-      </mat-card-content>
-      <mat-card-content style="margin-top: 1em;">
-        <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxLayoutGap="0.5em">
-          <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="50">
-            <p>planilhaormamental.csv</p>
-          </div>
-          <div fxLayout="row" fxLayoutAlign="end center" fxFlex="50" fxLayoutGap="1em">
-            <button mat-stroked-button color="primary" (click)="excluir()">Excluir</button>
-            <button mat-stroked-button color="primary">Analizar planilha</button>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</div>
+<router-outlet></router-outlet>

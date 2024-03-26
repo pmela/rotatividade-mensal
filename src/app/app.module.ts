@@ -17,13 +17,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatToolbarModule} from '@angular/material/toolbar';
-
-
-
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { AnexoComponent } from './anexo/anexo.component';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -34,7 +33,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ExcluirComponent,
     AnaliseComponent,
     ChurnComponent,
-    MrrComponent
+    MrrComponent,
+    AnexoComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +51,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatDatepickerModule,
     MatNativeDateModule,
     MatToolbarModule,
-    
+    MatMenuModule,
+    MatTableModule,
 
   ],
   providers: [],

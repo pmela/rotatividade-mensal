@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ExcluirComponent } from './excluir/excluir.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AnaliseComponent } from './analise/analise.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -12,10 +15,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class AppComponent {
   title = 'rotatividade-mensal';
 
-  constructor(private dialog: MatDialog) { }
-
-  excluir() {
-    this.dialog.open(ExcluirComponent);
-  }
+  constructor() { }
 }
 

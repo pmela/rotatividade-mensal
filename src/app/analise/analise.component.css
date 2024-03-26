@@ -1,0 +1,13 @@
+
+.borda-verde {
+    border-left: 0.5em solid;
+    border-color: #62b73a;
+}
+.borda-vermelho {
+    border-left: 0.5em solid;
+    border-color: #b73a3a;
+}
+.container {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+}
