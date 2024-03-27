@@ -24,6 +24,7 @@ import { AnexoComponent } from './anexo/anexo.component';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import { NgChartsModule } from 'ng2-charts';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -55,6 +56,7 @@ import { NgChartsModule } from 'ng2-charts';
     MatMenuModule,
     MatTableModule,
     NgChartsModule,
+    HttpClientModule,
 
   ],
   providers: [],

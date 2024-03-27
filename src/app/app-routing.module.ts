@@ -4,6 +4,7 @@ import { AnaliseComponent } from './analise/analise.component';
 import { AnexoComponent } from './anexo/anexo.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'anexo', pathMatch: 'full' },
   { path: 'analise', component: AnaliseComponent },
   { path: 'anexo', component: AnexoComponent },
 
