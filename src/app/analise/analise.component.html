@@ -3,66 +3,55 @@
         <mat-card fxFlex="25" class="borda-verde" fxLayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start center">
             <mat-icon fontIcon="group" style="padding-left: 0.5em;"></mat-icon>
             <div fxLayout="column">
-                <span>Total de clientes</span>
-                <span>948</span>
-            </div>
-
-        </mat-card>
-        <mat-card fxFlex="25" class="borda-verde" fxLayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start center">
-            <mat-icon fontIcon="attach_money" style="padding-left: 0.5em;"></mat-icon>
-            <div fxLayout="column">
-                <span>Receita de clientes ativos</span>
-                <span>R$ 1.256,00</span>
+                <span>Total de Ativos</span>
+                <span>{{quantidade_ativos}}</span>
             </div>
 
         </mat-card>
         <mat-card fxFlex="25" class="borda-vermelho" fxLayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start center">
-            <mat-icon fontIcon="close" style="padding-left: 0.5em;"></mat-icon>
+            <mat-icon fontIcon="block" style="padding-left: 0.5em;"></mat-icon>
             <div fxLayout="column">
-                <span>Total de cancelamentos</span>
-                <span>12</span>
+                <span>Total de Trial Cancelados</span>
+                <span>{{total_trial}}</span>
             </div>
 
         </mat-card>
         <mat-card fxFlex="25" class="borda-vermelho" fxLayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start center">
-            <mat-icon fontIcon="attach_money" style="padding-left: 0.5em;"></mat-icon>
+            <mat-icon fontIcon="block" style="padding-left: 0.5em;"></mat-icon>
             <div fxLayout="column">
-                <span>Valor provido de cancelamentos</span>
-                <span>R$ 456,00</span>
+                <span>Total de Cancelamentos</span>
+                <span>{{quantidade_cancelados}}</span>
+            </div>
+
+        </mat-card>
+        <mat-card fxFlex="25" class="borda-vermelho" fxLayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start center">
+            <mat-icon fontIcon="schedule" style="padding-left: 0.5em;"></mat-icon>
+            <div fxLayout="column">
+                <span>Total de Atrasados</span>
+                <span>{{total_atrasados}}</span>
             </div>
 
         </mat-card>
     </div>
     <br>
-    <div fxLayout="row" fxLayoutAlign="end center">
-        <mat-form-field appearance="fill">
-            <mat-label>Filtre pela data</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-    </div>
 
-    <div fxLayout="row" fxFlax="100">
-        <div fxLayoutGap="2em">
-            <mat-card fxFlex="60" fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayout="column" class="container">
-                    <canvas baseChart [data]="barChartData" [options]="barChartOptions" [plugins]="barChartPlugins"
-                        [legend]="barChartLegend" [type]="'bar'">
-                    </canvas>
-                </div>
-            </mat-card>
-            <mat-card fxFlex="40" fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayout="column" class="container">
-                    <p>Churn Rate</p>
-                    <p>Churn rate é a taxa de cancelamento, ou de abandono, registrada em sua base de clientes.</p>
-                    <p>(O grafico ao lado exibe o número de clientes que cancelaram a assinatura).</p>
-                </div>
-            </mat-card>
-        </div>
+    <div fxLayout="row" fxFlax="100" fxLayoutAlign="space-between">
+        <mat-card fxFlex="59">
+            <canvas baseChart [data]="barChartData" [options]="barChartOptions" [plugins]="barChartPlugins"
+                [legend]="barChartLegend" [type]="'bar'">
+            </canvas>
+        </mat-card>
+        <mat-card fxFlex="39" fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="column" class="container" fxFlax="100">
+                <p>Churn Rate</p>
+                <p>Churn rate é a taxa de cancelamento, ou de abandono, registrada em sua base de clientes.</p>
+                <p>(O grafico ao lado exibe o Churn Rate e número de clientes que cancelaram a assinatura).</p>
+                <p>(Calculo usado para Churn Rate: (Clientes que cancelaram / novos clientes) * 100).</p>
+            </div>
+        </mat-card>
     </div>
     <br>
-    <div fxLayout="row" fxFlax="100">
+    <!-- <div fxLayout="row" fxFlax="100">
         <div fxLayoutGap="2em">
             <mat-card fxFlex="60" fxLayout="row" fxLayoutAlign="space-between center">
                 <div fxLayout="column" class="container">
@@ -79,48 +68,41 @@
                         Enquanto o primeiro avalia o número de clientes que cancelaram seu produto ou serviço, o Churn
                         de receita calcula quanto em receita você perdeu com esses cancelamentos.</p>
                         <p>(O grafico ao lado exibe o valor perdido com o cancelamento de assinaturas).</p>
+                        <p>(Churn de receita = soma total do valor mensal pago pelos clientes que cancelaram).</p>
                 </div>
             </mat-card>
         </div>
     </div>
-    <br>
-    <div fxLayout="row" fxFlax="100">
-        <div fxLayoutGap="2em">
-            <mat-card fxFlex="60" fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayout="column" class="container">
-                    <canvas baseChart [data]="barChartData" [options]="barChartOptions" [plugins]="barChartPlugins"
-                        [legend]="barChartLegend" [type]="'bar'">
-                    </canvas>
-                </div>
-            </mat-card>
-            <mat-card fxFlex="40" fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayout="column" class="container">
-                    <p>Recurring Revenue (MRR)</p>
-                    <p>O MRR é o cálculo de quanto a empresa receberá mensalmente pelas assinaturas de uso dos seus
-                        produtos ou serviços. É mediante essa métrica que os líderes empresariais conseguem prever o
-                        ganho mensal e, consequentemente, planejar investimentos futuros. </p>
-                        <p>(O grafico ao lado exibe quanto você faturou com as assinaturas)</p>
+    <br> -->
+    <div fxLayout="row" fxFlax="100"  fxLayoutAlign="space-between">
+        <mat-card fxFlex="59" fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="column" class="container">
+                <p>Não consegui calcular o Recurring Revenue (MRR), pois tive dificuldades para interpretar a
+                    planilha. </p>
+            </div>
+        </mat-card>
+        <mat-card fxFlex="39" fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="column" class="container">
+                <p>Recurring Revenue (MRR)</p>
+                <p>O MRR é o cálculo de quanto a empresa receberá mensalmente pelas assinaturas de uso dos seus
+                    produtos ou serviços. É mediante essa métrica que os líderes empresariais conseguem prever o
+                    ganho mensal e, consequentemente, planejar investimentos futuros. </p>
+                <p>(O grafico ao lado exibe quanto você faturou com as assinaturas)</p>
+                <p>((Calculo usado:).)</p>
 
-                </div>
-            </mat-card>
-        </div>
+            </div>
+        </mat-card>
     </div>
     <br>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="descricao">
             <th mat-header-cell *matHeaderCellDef> Descrição </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
         </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
+        <ng-container matColumnDef="valor">
             <th mat-header-cell *matHeaderCellDef> Valor</th>
-            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -25,7 +25,8 @@
         <mat-card-content fxLayout="column" fxFlex="20">
           <button mat-raised-button color="primary"
             (click)="fileInput.click()"><mat-icon>upload_file</mat-icon>Anexar</button>
-          <input hidden type="file" multiple="false" (change)="adicionaArquivo($event)" #fileInput>
+          <input hidden type="file" multiple="false" (change)="adicionaArquivo($event)" #fileInput
+            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
         </mat-card-content>
       </div>
       <mat-card-header>
@@ -34,16 +35,15 @@
           de anotá-la.</mat-card-subtitle>
       </mat-card-header>
 
-      <mat-card-content style="margin-top: 1em;"*ngFor="let anexo of anexos">
-        <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxLayoutGap="0.5em"
-          >
+      <mat-card-content style="margin-top: 1em;" *ngFor="let anexo of anexos">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxLayoutGap="0.5em">
           <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="50">
             <p>{{anexo.nome}}</p>
           </div>
           <div fxLayout="row" fxLayoutAlign="end center" fxFlex="50" fxLayoutGap="1em">
             <button mat-stroked-button color="primary" (click)="excluir()"><mat-icon>delete</mat-icon>Excluir</button>
             <button mat-stroked-button color="primary"
-              (click)="navegaAnalise()"><mat-icon>query_stats</mat-icon>Analizar planilha</button>
+              (click)="navegaAnalise(anexo.id)"><mat-icon>query_stats</mat-icon>Analizar planilha</button>
           </div>
         </div>
       </mat-card-content>

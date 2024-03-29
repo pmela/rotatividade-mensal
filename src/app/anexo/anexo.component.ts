@@ -20,8 +20,8 @@ export class AnexoComponent implements OnInit {
     this.listaAnexo()
   }
 
-  navegaAnalise() {
-    this.rota.navigate(['analise'])
+  navegaAnalise(id: any) {
+    this.rota.navigate(['analise',id])
   }
 
   excluir() {

@@ -2,10 +2,12 @@
 .borda-verde {
     border-left: 0.5em solid;
     border-color: #62b73a;
+    padding: 0.5em;
 }
 .borda-vermelho {
     border-left: 0.5em solid;
     border-color: #b73a3a;
+    padding: 0.5em;
 }
 .container {
     padding-left: 2.5em;
