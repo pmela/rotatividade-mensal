@@ -8,11 +8,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { SenhaComponent } from './senha/senha.component';
 import { ExcluirComponent } from './excluir/excluir.component';
 import { AnaliseComponent } from './analise/analise.component';
-import { ChurnComponent } from './churn/churn.component';
-import { MrrComponent } from './mrr/mrr.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -31,11 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    SenhaComponent,
     ExcluirComponent,
     AnaliseComponent,
-    ChurnComponent,
-    MrrComponent,
     AnexoComponent
   ],
   imports: [

@@ -1,17 +1,9 @@
-<div fxLayout="column" fxLayoutAlign="space-between center">
+<div fxLayout="column" fxLayoutAlign="space-between center" >
     <h1 mat-dialog-title>Excluir</h1>
-    <mat-dialog-content>Para escluir o aequivo x e necessario digitar a senha do mesmo!</mat-dialog-content>
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
-        <mat-form-field appearance="outline" fxFlex="100">
-            <mat-label>Senha</mat-label>
-            <input type="password" [formControl]="senhaFormControl" matInput placeholder="123456">
-            <mat-error *ngIf="!senhaFormControl.valid">
-                Digite sua senha
-            </mat-error>
-        </mat-form-field>
-    </div>
+    <mat-dialog-content>Tem certeza que seja excluir o arquivo?</mat-dialog-content>
 
-    <div mat-dialog-actions fxLayoutAlign="end center">
+    <div mat-dialog-actions fxLayoutAlign="space-between center" >
         <button mat-button mat-dialog-close>Fechar</button>
+        <button mat-button (click)="confirmar()">Confirmar</button>
     </div>
 </div>

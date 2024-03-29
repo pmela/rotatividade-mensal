@@ -15,6 +15,11 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'rotatividade-mensal';
 
-  constructor() { }
+  constructor(private rota: Router) { }
+
+  navegaAnexo(){
+    this.rota.navigate(['anexo'])
+  }
+
 }
 

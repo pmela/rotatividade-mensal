@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-excluir',
@@ -8,6 +9,12 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ExcluirComponent {
 
-  senhaFormControl = new FormControl('', [Validators.required]);
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<ExcluirComponent>,
+  ) { }
 
+  confirmar(){
+    this.dialogRef.close(true);
+  }
 }

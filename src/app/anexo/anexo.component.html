@@ -1,17 +1,24 @@
 <div class="container fundo">
   <div fxLayout="column" fxLayoutAlign="center start" style="margin-top: 3em;">
-    <p style="font-size: 2.3em; font-weight: 400; margin-bottom: 1em; line-height:0.9em;">Ola! Seja bem vindo(a) a
+    <p class="titulo">Ola! Seja bem vindo(a) a
       aplicação Rotatividade mensal </p>
     <p style="font-size: 20px; font-weight: 300;">Ao Anexar sua planilha no botão Anexar abaixo você tera uma analise de
       Monthly Recurring Revenue (MRR) e Churn Rate entre outras.
     </p>
   </div>
-  <div fxLayout="row" fxLayoutAlign="end center">
+  <!-- <div fxLayout="row" fxLayoutAlign="end center">
     <mat-form-field appearance="fill">
       <mat-label>Filtre pela data de anexo</mat-label>
-      <input matInput [matDatepicker]="picker">
+      <input matInput [matDatepicker]="picker" [formControl]="">
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div> -->
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <mat-form-field appearance="fill">
+      <mat-label>Filtre pelo nome</mat-label>
+      <input matInput placeholder="Nome do arquivo" [formControl]="filtroNome">
+      <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   </div>
 
@@ -19,7 +26,7 @@
     <mat-card fxFlex="100">
       <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center" style="margin-top: 1.5em;">
         <div fxLayout="column" fxFlex="80">
-          <mat-card-content style="font-size: 18px; font-weight: 400; text-align: justify;">Anexe sua planilha
+          <mat-card-content class="letra-card">Anexe sua planilha
           </mat-card-content>
         </div>
         <mat-card-content fxLayout="column" fxFlex="20">
@@ -30,10 +37,12 @@
         </mat-card-content>
       </div>
       <mat-card-header>
-        <mat-card-subtitle>Ao anexar sua planilha, o sistema lhe pedira uma senha para acessá-la futuramente,
-          lembre-se
-          de anotá-la.</mat-card-subtitle>
+        <mat-card-subtitle>Clique no botão "Anexar" para fazer upload de sua planilha, lembrando que ela precisa esta no formato .csv ou .xlsx</mat-card-subtitle>
       </mat-card-header>
+
+      <div *ngIf="anexos.length == 0" fxLayout="row" fxLayoutAlign="center center" class="card-sem-anexo">
+        <p class="titulo">Não há planilhas cadastradas</p>
+      </div>
 
       <mat-card-content style="margin-top: 1em;" *ngFor="let anexo of anexos">
         <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxLayoutGap="0.5em">
@@ -41,7 +50,7 @@
             <p>{{anexo.nome}}</p>
           </div>
           <div fxLayout="row" fxLayoutAlign="end center" fxFlex="50" fxLayoutGap="1em">
-            <button mat-stroked-button color="primary" (click)="excluir()"><mat-icon>delete</mat-icon>Excluir</button>
+            <button mat-stroked-button color="primary" (click)="excluir(anexo)"><mat-icon>delete</mat-icon>Excluir</button>
             <button mat-stroked-button color="primary"
               (click)="navegaAnalise(anexo.id)"><mat-icon>query_stats</mat-icon>Analizar planilha</button>
           </div>

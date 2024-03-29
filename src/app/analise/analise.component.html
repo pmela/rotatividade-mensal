@@ -3,32 +3,32 @@
         <mat-card fxFlex="25" class="borda-verde" fxLayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start center">
             <mat-icon fontIcon="group" style="padding-left: 0.5em;"></mat-icon>
             <div fxLayout="column">
-                <span>Total de Ativos</span>
-                <span>{{quantidade_ativos}}</span>
+                <span class="titulo-card">Total de Ativos</span>
+                <span class="letra-card">{{quantidade_ativos}}</span>
             </div>
 
         </mat-card>
         <mat-card fxFlex="25" class="borda-vermelho" fxLayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start center">
             <mat-icon fontIcon="block" style="padding-left: 0.5em;"></mat-icon>
             <div fxLayout="column">
-                <span>Total de Trial Cancelados</span>
-                <span>{{total_trial}}</span>
+                <span class="titulo-card">Total de Trial Cancelados</span>
+                <span class="letra-card">{{total_trial}}</span>
             </div>
 
         </mat-card>
         <mat-card fxFlex="25" class="borda-vermelho" fxLayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start center">
             <mat-icon fontIcon="block" style="padding-left: 0.5em;"></mat-icon>
             <div fxLayout="column">
-                <span>Total de Cancelamentos</span>
-                <span>{{quantidade_cancelados}}</span>
+                <span class="titulo-card">Total de Cancelamentos</span>
+                <span class="letra-card">{{quantidade_cancelados}}</span>
             </div>
 
         </mat-card>
         <mat-card fxFlex="25" class="borda-vermelho" fxLayout="row" fxLayoutGap="0.5em" fxLayoutAlign="start center">
             <mat-icon fontIcon="schedule" style="padding-left: 0.5em;"></mat-icon>
             <div fxLayout="column">
-                <span>Total de Atrasados</span>
-                <span>{{total_atrasados}}</span>
+                <span class="titulo-card">Total de Atrasados</span>
+                <span class="letra-card">{{total_atrasados}}</span>
             </div>
 
         </mat-card>
@@ -36,78 +36,81 @@
     <br>
 
     <div fxLayout="row" fxFlax="100" fxLayoutAlign="space-between">
-        <mat-card fxFlex="59">
+        <mat-card fxFlex="59" class="container-grafico">
             <canvas baseChart [data]="barChartData" [options]="barChartOptions" [plugins]="barChartPlugins"
                 [legend]="barChartLegend" [type]="'bar'">
             </canvas>
         </mat-card>
-        <mat-card fxFlex="39" fxLayout="row" fxLayoutAlign="space-between center">
-            <div fxLayout="column" class="container" fxFlax="100">
-                <p>Churn Rate</p>
-                <p>Churn rate é a taxa de cancelamento, ou de abandono, registrada em sua base de clientes.</p>
-                <p>(O grafico ao lado exibe o Churn Rate e número de clientes que cancelaram a assinatura).</p>
-                <p>(Calculo usado para Churn Rate: (Clientes que cancelaram / novos clientes) * 100).</p>
+        <mat-card fxFlex="39" fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column" class="container-grafico" fxFlax="100">
+                <p class="titulo">Churn Rate</p>
+                <p class="letra-card">Churn rate é a taxa de cancelamento, ou de abandono, registrada em sua base de
+                    clientes.</p>
+                <p class="letra-card">O gráfico ao lado exibe o Churn Rate e número de clientes que cancelaram a
+                    assinatura.</p>
+                <br>
+                <p class="letra-card">(Cálculo usado para Churn Rate: (Clientes que cancelaram / novos clientes) * 100).
+                </p>
             </div>
         </mat-card>
     </div>
     <br>
-    <!-- <div fxLayout="row" fxFlax="100">
-        <div fxLayoutGap="2em">
-            <mat-card fxFlex="60" fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayout="column" class="container">
-                    <canvas baseChart width="400" height="400" [type]="'line'" [data]="lineChartData"
-                        [options]="lineChartOptions" [legend]="lineChartLegend">
-                    </canvas>
-                </div>
-            </mat-card>
-            <mat-card fxFlex="40" fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayout="column" class="container">
-                    <p>Churn de receita</p>
-                    <p>Existe uma simples, mas importante diferença entre o Churn e o que chamamos de Churn de Receita
-                        (também conhecido como MRR Churn).
-                        Enquanto o primeiro avalia o número de clientes que cancelaram seu produto ou serviço, o Churn
-                        de receita calcula quanto em receita você perdeu com esses cancelamentos.</p>
-                        <p>(O grafico ao lado exibe o valor perdido com o cancelamento de assinaturas).</p>
-                        <p>(Churn de receita = soma total do valor mensal pago pelos clientes que cancelaram).</p>
-                </div>
-            </mat-card>
-        </div>
+    <div fxLayout="row" fxFlax="100" fxLayoutAlign="space-between">
+        <mat-card fxFlex="59" class="container-grafico">
+            <canvas baseChart [type]="'line'" [data]="lineChartData" [options]="lineChartOptions"
+                [legend]="lineChartLegend" width="750em">
+            </canvas>
+        </mat-card>
+        <mat-card fxFlex="39" fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="column" class="container" fxFlax="100">
+                <p class="titulo">Churn de receita</p>
+                <p class="letra-card">Existe uma simples, mas importante diferença entre o Churn e o que chamamos de Churn de Receita
+                    (também conhecido como MRR Churn).
+                    Enquanto o primeiro avalia o número de clientes que cancelaram seu produto ou serviço, o Churn
+                    de receita calcula quanto em receita você perdeu com esses cancelamentos.</p>
+                <p class="letra-card">O gráfico ao lado exibe o valor perdido com o cancelamento de assinaturas.</p>
+                <br>
+                <p class="letra-card">(Churn de receita = soma total do valor mensal pago pelos clientes que cancelaram).</p>
+            </div>
+        </mat-card>
     </div>
-    <br> -->
-    <div fxLayout="row" fxFlax="100"  fxLayoutAlign="space-between">
+    <br>
+    <div fxLayout="row" fxFlax="100" fxLayoutAlign="space-between">
         <mat-card fxFlex="59" fxLayout="row" fxLayoutAlign="space-between center">
-            <div fxLayout="column" class="container">
-                <p>Não consegui calcular o Recurring Revenue (MRR), pois tive dificuldades para interpretar a
+            <div fxLayout="column" class="container-grafico">
+                <p class="letra-card">Não consegui calcular o Recurring Revenue (MRR), pois tive dificuldades para interpretar a
                     planilha. </p>
             </div>
         </mat-card>
         <mat-card fxFlex="39" fxLayout="row" fxLayoutAlign="space-between center">
-            <div fxLayout="column" class="container">
-                <p>Recurring Revenue (MRR)</p>
-                <p>O MRR é o cálculo de quanto a empresa receberá mensalmente pelas assinaturas de uso dos seus
+            <div fxLayout="column" class="container-grafico">
+                <p class="titulo">Recurring Revenue (MRR)</p>
+                <p  class="letra-card">O MRR é o cálculo de quanto a empresa receberá mensalmente pelas assinaturas de uso dos seus
                     produtos ou serviços. É mediante essa métrica que os líderes empresariais conseguem prever o
                     ganho mensal e, consequentemente, planejar investimentos futuros. </p>
-                <p>(O grafico ao lado exibe quanto você faturou com as assinaturas)</p>
-                <p>((Calculo usado:).)</p>
+                <p  class="letra-card">O gráfico ao lado exibiria quanto você faturou com as assinaturas por mês</p>
+                <p class="letra-card">(Cálculo que deveria ser usado:valor mensal do plano ou assinatura × número de clientes = MRR).</p>
 
             </div>
         </mat-card>
     </div>
     <br>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z3">
         <ng-container matColumnDef="descricao">
             <th mat-header-cell *matHeaderCellDef> Descrição </th>
             <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
         </ng-container>
 
         <ng-container matColumnDef="valor">
-            <th mat-header-cell *matHeaderCellDef> Valor</th>
-            <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+            <th mat-header-cell *matHeaderCellDef > Valor</th>
+            <td mat-cell *matCellDef="let element" class="letra-card"> {{element.valor}} </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="letra-card"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     <br>
-    <p fxLayoutAlign="center center">Desenvolvido por: Pâmela Araújo</p>
+    <a fxLayoutAlign="center center"  href="https://pamelaaraujodev.com.br/"
+    target="_blank">Desenvolvido por: Pâmela Araújo</a>
+    <br>
 </div>

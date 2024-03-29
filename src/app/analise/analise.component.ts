@@ -34,6 +34,18 @@ export class AnaliseComponent implements OnInit {
     quantidade_cancelados: number = 0
     total_atrasados: number = 0
 
+    public lineChartData: ChartConfiguration<'line'>['data'] = {
+        labels: [
+        ],
+        datasets: [
+
+        ]
+      };
+      public lineChartOptions: ChartOptions<'line'> = {
+        responsive: true
+      };
+      public lineChartLegend = false;
+
     constructor(private analiseService: AnaliseService, private rotaAtiva: ActivatedRoute,
     ) { }
 
@@ -44,6 +56,7 @@ export class AnaliseComponent implements OnInit {
             next: (resultado: any) => {
                 console.log(resultado)
                 this.montaGrafico(resultado.grafico)
+                this.montaGraficoLinha(resultado.grafico)
                 this.total_trial = resultado.total_trial
                 this.quantidade_ativos = resultado.quantidade_ativos
                 this.quantidade_cancelados = resultado.quantidade_cancelados
@@ -66,6 +79,23 @@ export class AnaliseComponent implements OnInit {
             ]
         };
     }
+    montaGraficoLinha(grafico: any) {
+        this.lineChartData  = {
+            labels: grafico.map((gra: any) => gra.mes),
+            datasets: [
+              {
+                data: grafico.map((gra: any) => gra.valor),
+                label: 'Churn de receita',
+                fill: true,
+                tension: 0,
+                borderColor: '#B83B4D',
+                backgroundColor: 'rgba(0,0,0,0.0)'
+              }
+            ]
+          };
+    }
+
+   
 
     montaTabela(resultado: any) {
         this.dataSource = [
