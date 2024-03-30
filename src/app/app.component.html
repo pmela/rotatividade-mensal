@@ -1,16 +1,31 @@
-<mat-toolbar color="primary" >
+<mat-toolbar color="primary">
   <div fxLayoutAlign="space-between center" fxFlex="100">
 
     <div fxLayoutAlign="start center">
-      <img (click)="navegaAnexo()" style="cursor: pointer;" src="assets/imagens/logorotatividade.png" width="25%" fxFlex="60">
+      <img (click)="navegaAnexo()" style="cursor: pointer;" src="assets/imagens/logorotatividade.png" width="25%"
+        fxFlex="60">
     </div>
     <div fxLayoutAlign="end center">
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon class="material-icons-outlined" fontIcon="info"></mat-icon>
       </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
+      <mat-menu #menu="matMenu" >
+        <p class="container">
+          Tive dificuldade para interpretar a planilha disponibilizada por vocês e por conta disso não tenho certeza se
+          o cálculo usado para calcular o churn rate está certo, já o cálculo para achar o MRR, não consegui fazer.
+          Adicionei uma tabela que mostra algumas informações que podem ser úteis, card com cálculos no início da tela
+          de análise e também um filtro na tela de anexo.
+        </p>
+
+        <p class="container">
+          Fiz o desafio utilizando Angular para o Front-end por ser a tecnologia a qual tenho mais facilidade.
+          Para o Back-end escolhi o Python e juntos eles formam minha stack preferida.
+        </p>
+        <p class="container">
+         <a target=_blank href="https://github.com/pmela/rotatividade-mensal"> Código do Front-end</a>
+          <br>
+         <a target=_blank href="https://github.com/pmela/rotatividade-mensal-api">Código do Back-end</a>
+        </p>
       </mat-menu>
     </div>
   </div>
