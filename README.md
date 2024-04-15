@@ -12,6 +12,9 @@ Angular Cli https://angular.io/cli
 
 É ncessário estar com o rotatividade-mensal-api localmente na url/porta `http://localhost:8000/`
 
+A planilha precisa estar com as colunas na estrutura a seguir (TANTO ORDEM QUANTO ESCRITA):
+quantidade cobranças,cobrada a cada X dias,data início,status,data status,data cancelamento,valor,próximo ciclo,ID assinante 
+
 Link para o Back: https://github.com/pmela/rotatividade-mensal-api
 ![anexo](https://github.com/pmela/rotatividade-mensal/assets/49800823/db6fb273-dbbc-4ff1-8456-226e82cea656)
 
